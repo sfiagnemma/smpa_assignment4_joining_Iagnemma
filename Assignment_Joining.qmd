@@ -105,7 +105,9 @@ Now using the joined datasets above, come up with two groupings you find interes
 
 ```{r}
 
-
+full_join(counties_elexresults, counties_demographics) %>% 
+  group_by(pct_race_nonwhite) %>% 
+  summarise(pct_r_2020)
 
 
 ```
@@ -114,8 +116,9 @@ Now using the joined datasets above, come up with two groupings you find interes
 
 ```{r}
 
-
-
+full_join(counties_elexresults, counties_demographics) %>% 
+  group_by(pct_r_2008) %>% 
+  summarise(pct_r_2020)
 
 
 ```
@@ -125,8 +128,6 @@ Now using the joined datasets above, come up with two groupings you find interes
 Up until now we've joined two tables together. But we actually have three tables in this project. How might we join all three together into a single table, so all the measures for each county are combined in one place? (Hint: you can do this is multiple steps, doesn't have to be one step only.)
 
 ```{r}
-
-
 
 
 
