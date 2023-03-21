@@ -41,8 +41,10 @@ Join together the election results and urban/suburban/rural tables above, and th
 
 ```{r}
 
-
-
+full_join(counties_rural_urban_suburban, counties_elexresults) %>% 
+  group_by(rural_urban) %>% 
+  summarise(pct_r_2020)
+  
 
 ```
 
@@ -55,9 +57,11 @@ Using the joined election results / urban/suburban/rural table created above:
 -   count up how many counties were won by party in 2020 (`winner_2020`) by urban/rural categories
 
 ```{r}
-
-
-
+full_join(counties_rural_urban_suburban, counties_elexresults) %>% 
+  filter(state_code == "VA") %>% 
+  group_by(rural_urban)%>%
+  count(winner_2020 == "R")  
+  
 
 ```
 
@@ -71,9 +75,11 @@ Join together the election results and demographics tables above, and then use t
 
 ```{r}
 
-
-
-
+full_join(counties_elexresults, counties_demographics) %>% 
+  filter(state_code == "FL") %>% 
+  group_by(pct_ed_college_all_abovebelow_natl) %>% 
+  summarise(pct_r_2020)
+  
 ```
 
 4)  
@@ -86,7 +92,9 @@ Using the joined table you made above:
 
 ```{r}
 
-
+full_join(counties_elexresults, counties_demographics) %>% 
+  group_by(pct_ed_college_all_abovebelow_natl) %>% 
+  summarise(pct_r_2020)
 
 
 ```
