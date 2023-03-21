@@ -129,7 +129,8 @@ Up until now we've joined two tables together. But we actually have three tables
 
 ```{r}
 
-
+elecresults_demographics <- (full_join(counties_elexresults, counties_demographics)) %>% 
+  full_join(elecresults_demographics, counties_rural_urban_suburban)
 
 
 ```
