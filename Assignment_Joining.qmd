@@ -25,7 +25,7 @@ counties_demographics <- readRDS(here("data", "counties_demographics.rds"))
 counties_elexresults <- readRDS(here("data", "counties_elexresults.rds"))
 counties_rural_urban_suburban <- readRDS(here("data", "counties_rural_urban_suburban.rds"))
 
-
+head(counties_demographics)
 
 ```
 
